@@ -1,0 +1,40 @@
+body{
+    background-color: black;
+}
+
+p{
+    color: #20c20c;
+    font-size: 20px;
+}
+
+h1{
+    color: #20c20c;
+    text-align: center;
+}
+
+#score{
+    text-align: center;
+}
+
+#square-divisions{
+    margin-left: -50px;
+    padding-left: 50px;
+}
+
+#divisions-title{
+    float: left;
+    margin-top: 0px;
+}
+
+#divisions{
+    width: 50px;
+    margin-left: 10px;
+    border-radius: 3px;
+}
+
+.clear{
+    clear: both;
+}
+
+
+

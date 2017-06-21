@@ -2,7 +2,6 @@
 <html lang="en">
 
 
-
 <head>
 
     <!-- Metadata -->
@@ -22,15 +21,30 @@
 </head>
 
 
-
-
+<!--  -->
 <body>
 
+    <!-- Title -->
     <h1>KILObyte</h1>
     <p id="score"></p>
 
-</body>
+    <!-- Square Divisions -->
+    <div id="square-divisions">
+        <p id="divisions-title">Divisions: </p>
+        <input id="divisions" type="number" value="3">
+        <input id="change-divisions" type="button" value="OK">
+        <div class="clear"></div>
+    </div>
 
+    <!-- Game Canvas -->
+    <div id="gamecanvas">
+        <canvas id="canvas" width="500" height="500"></canvas>
+    </div>
+
+    <!-- Javascript -->
+    <script src="script.js"></script>
+
+</body>
 
 
 </html>
