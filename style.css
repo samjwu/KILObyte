@@ -17,8 +17,8 @@ h1{
 }
 
 #square-divisions{
-    margin-left: -50px;
-    padding-left: 50px;
+    margin-left: -100px;
+    padding-left: 50%;
 }
 
 #divisions-title{
@@ -30,11 +30,27 @@ h1{
     width: 50px;
     margin-left: 10px;
     border-radius: 3px;
+    color: #20c20c;
+    background-color: black;
+    border-color: #20c20c;
+}
+
+#change-divisions{
+    color: #20c20c;
+    background-color: black;
+    border-color: #20c20c;;
 }
 
 .clear{
     clear: both;
 }
 
+#gamecanvas{
+    margin-left: -250px;
+    padding-left: 50%;
+}
 
+#canvas{
+    background-color: #20c20c;
+}
 
