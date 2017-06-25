@@ -25,6 +25,7 @@ function startgame() {
 //function to place a cell based on row/column
 function cell(row, col) {
     this.value = 0;
+    //var*width for placement, 5*(var+1) for padding
     this.x = col * width + 5 * (col + 1);
     this.y = row * width + 5 * (row + 1);
 }
@@ -42,10 +43,11 @@ function createcells() {
 //function to draw/color individual cells
 function drawcell(cell) {
     context.beginPath();
-    context.rect(cell.x, cell.y, width, width);
+    context.rect(cell.x, cell.y, width, width); //draw rectangle
 
-    switch(cell, value) {
-        case 0 : context.fillStyle = "#000000"; break;
+    //switch fxn to give each cell their number (of bytes) and color
+    switch(cell.value) {
+        case 0 : context.fillStyle = "#0fffff"; break;
         case 2 : context.fillStyle = "#000000"; break;
         case 4 : context.fillStyle = "#000000"; break;
         case 8 : context.fillStyle = "#000000"; break;

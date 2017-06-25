@@ -47,11 +47,13 @@ h1{
     clear: both;
 }
 
+/* game screen */
 #gamecanvas{
     margin-left: -250px;
     padding-left: 50%;
 }
 
+/* byte screen */
 #canvas{
     background-color: #20c20c;
 }
