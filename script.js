@@ -20,6 +20,7 @@ startgame();
 function startgame() {
     createcells();
     drawallcells();
+    newcell();
 }
 
 //function to place a cell based on row/column
@@ -47,7 +48,7 @@ function drawcell(cell) {
 
     //switch fxn to give each cell their number (of bytes) and color
     switch(cell.value) {
-        case 0 : context.fillStyle = "#0fffff"; break;
+        case 0 : context.fillStyle = "#000000"; break;
         case 2 : context.fillStyle = "#000000"; break;
         case 4 : context.fillStyle = "#000000"; break;
         case 8 : context.fillStyle = "#000000"; break;
@@ -75,6 +76,18 @@ function drawallcells() {
     for (var i = 0; i < divisions; i++) {
         for (var j = 0; j < divisions; j++) {
             drawcell(cells[i][j]);
+        }
+    }
+}
+
+function newcell() {
+    while (true) {
+        var row = Math.floor(Math.random() * divisions);
+        var col = Math.floor(Math.random() * divisions);
+        if (!cell([row][col].value)) {
+            cells[row][col].value = 2 * Math.ceil(Math.random() * 2);
+            drawallcells();
+            return;
         }
     }
 }
