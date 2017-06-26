@@ -20,7 +20,7 @@ startgame();
 function startgame() {
     createcells();
     drawallcells();
-    gencell();
+    
 }
 
 //function to place a cell based on row/column
@@ -121,18 +121,49 @@ function moveU() {
                         cells[row-1][j].value *= 2;
                         score += cells[row-1][j].value;
                         cells[row][j].value = 0;
+                        break;
+                    }
+                    else { 
+                        break;
                     }
                 }
             }
         }
     }
+    gencell();
 }
 
 //function to move cells right
 function moveR() {}
 
 //function to move cells down
-function moveD() {}
+function moveD() {
+    for (var j = 0; j < divisions; j++) {
+        for (var i = divisions - 2; i >= 0; i--) {
+            if (cells[i][j].value) {
+                var row = i;
+                while (row + 1 < divisions) {
+                    if (!cells[row+1][j].value) {
+                        cells[row+1][j].value = cells[row][j].value;
+                        cells[row][j].value = 0;
+                        row++;
+                    }
+                    else if (cells[row+1][j].value == cells[row][j].value) {
+                        // cells[row-1][j].value = 2 * cells[row-1][j].value;
+                        cells[row+1][j].value *= 2;
+                        score += cells[row+1][j].value;
+                        cells[row][j].value = 0;
+                        break;
+                    }
+                    else { 
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    gencell();
+}
 
 //function to move cells left
 function moveL() {}
