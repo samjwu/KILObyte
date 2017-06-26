@@ -20,7 +20,8 @@ startgame();
 function startgame() {
     createcells();
     drawallcells();
-    
+    gencell();
+    gencell();
 }
 
 //function to place a cell based on row/column
