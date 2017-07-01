@@ -147,7 +147,7 @@ function moveD() {
                     if (!cells[row+1][j].value) {
                         cells[row+1][j].value = cells[row][j].value;
                         cells[row][j].value = 0;
-                        row--;
+                        row++;
                     }
                     else if (cells[row+1][j].value == cells[row][j].value) {
                         // cells[row+1][j].value = 2 * cells[row+1][j].value;
