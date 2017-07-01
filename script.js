@@ -118,7 +118,6 @@ function moveU() {
                         row--;
                     }
                     else if (cells[row-1][j].value == cells[row][j].value) {
-                        // cells[row-1][j].value = 2 * cells[row-1][j].value;
                         cells[row-1][j].value *= 2;
                         score += cells[row-1][j].value;
                         cells[row][j].value = 0;
@@ -135,7 +134,32 @@ function moveU() {
 }
 
 //function to move cells right
-function moveR() {}
+function moveR() {
+    for (var i = 0; i < divisions; i++) {
+        for (var j = divisions - 2; j >= 0; j--) {
+            if (cells[i][j].value) {
+                var col = j;
+                while (col + 1 < divisions) {
+                    if (!cells[i][col+1].value) {
+                        cells[i][col+1].value = cells[i][col].value;
+                        cells[i][col].value = 0;
+                        col++;
+                    }
+                    else if (cells[i][col+1].value == cells[i][col].value) {
+                        cells[i][col+1].value *= 2;
+                        score += cells[i][col+1].value;
+                        cells[i][col].value = 0;
+                        break;
+                    }
+                    else { 
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    gencell();
+}
 
 //function to move cells down
 function moveD() {
@@ -150,7 +174,6 @@ function moveD() {
                         row++;
                     }
                     else if (cells[row+1][j].value == cells[row][j].value) {
-                        // cells[row+1][j].value = 2 * cells[row+1][j].value;
                         cells[row+1][j].value *= 2;
                         score += cells[row+1][j].value;
                         cells[row][j].value = 0;
