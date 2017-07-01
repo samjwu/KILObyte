@@ -86,7 +86,7 @@ function gencell() {
     while (true) {
         var row = Math.floor(Math.random() * divisions);
         var col = Math.floor(Math.random() * divisions);
-        if (!cell([row][col].value)) {
+        if (!cells[row][col].value) {
             cells[row][col].value = 2 * Math.ceil(Math.random() * 2);
             drawallcells();
             return;
@@ -147,10 +147,10 @@ function moveD() {
                     if (!cells[row+1][j].value) {
                         cells[row+1][j].value = cells[row][j].value;
                         cells[row][j].value = 0;
-                        row++;
+                        row--;
                     }
                     else if (cells[row+1][j].value == cells[row][j].value) {
-                        // cells[row-1][j].value = 2 * cells[row-1][j].value;
+                        // cells[row+1][j].value = 2 * cells[row+1][j].value;
                         cells[row+1][j].value *= 2;
                         score += cells[row+1][j].value;
                         cells[row][j].value = 0;
