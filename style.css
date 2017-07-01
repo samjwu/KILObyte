@@ -16,17 +16,21 @@ h1{
     text-align: center;
 }
 
+/* size block */
 #square-divisions{
     margin-left: -100px;
     padding-left: 50%;
 }
 
+/* size title */
 #divisions-title{
     float: left;
     margin-top: 0px;
 }
 
-/* input box for divisions */
+
+/* size
+input box for divisions */
 #divisions{
     width: 50px;
     margin-left: 10px;
@@ -36,7 +40,8 @@ h1{
     border-color: #20c20c;
 }
 
-/* OK button for divisions */
+/* change size
+OK button for divisions */
 #change-divisions{
     color: #20c20c;
     background-color: black;
@@ -47,7 +52,8 @@ h1{
     clear: both;
 }
 
-/* game screen */
+/* canvas block
+game screen */
 #gamecanvas{
     margin-left: -250px;
     padding-left: 50%;
