@@ -66,9 +66,9 @@ function drawcell(cell) {
     if (cell.value) {
         fontsize = width / 2;
         context.font = fontsize + "px Arial";
-        context.fillStyle = "white";
+        context.fillStyle = "#20c20c"; //number color
         context.textAlign = "center";
-        context.fillText(cell.value, cell.x + width / 2, cell.y + width / 1.6);
+        context.fillText(cell.value, cell.x + width / 2, cell.y + width / 1.6); //number position
     }
 }
 
@@ -84,10 +84,10 @@ function drawallcells() {
 //function to generate a nonempty cell with a number in it
 function gencell() {
     while (true) {
-        var row = Math.floor(Math.random() * divisions);
-        var col = Math.floor(Math.random() * divisions);
+        var row = Math.floor(Math.random() * divisions); //0 to divisions
+        var col = Math.floor(Math.random() * divisions); //0 to divisions
         if (!cells[row][col].value) {
-            cells[row][col].value = 2 * Math.ceil(Math.random() * 2);
+            cells[row][col].value = 2 * Math.ceil(Math.random() * 2); //can be 2 or 4
             drawallcells();
             return;
         }
