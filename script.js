@@ -83,6 +83,22 @@ function drawallcells() {
 
 //function to generate a nonempty cell with a number in it
 function gencell() {
+    //get number of empty cells
+    var numempty = 0;
+    for (var i = 0; i < divisions; i++) {
+        for (var j = 0; j < divisions; j++) {
+            if (!cells[i][j].value) {
+                numempty++;
+            }
+        }
+    }
+
+    //end game if no cells are empty
+    if (!numempty) {
+        endgame();
+        return;
+    }
+
     while (true) {
         var row = Math.floor(Math.random() * divisions); //0 to divisions
         var col = Math.floor(Math.random() * divisions); //0 to divisions
@@ -219,4 +235,9 @@ function moveL() {
         }
     }
     gencell();
+}
+
+function endgame() {
+    canvas.style.opacity = "0.1";
+    gameover = true;
 }
