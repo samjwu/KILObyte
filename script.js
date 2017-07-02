@@ -68,7 +68,7 @@ function drawcell(cell) {
         context.font = fontsize + "px Arial";
         context.fillStyle = "white";
         context.textAlign = "center";
-        context.fillText(cell.value, cell.x + width / 2, cell.y + width / 2);
+        context.fillText(cell.value, cell.x + width / 2, cell.y + width / 1.6);
     }
 }
 
@@ -191,16 +191,20 @@ function moveD() {
 
 //function to move cells left
 function moveL() {
+    //i for rows
     for (var i = 0; i < divisions; i++) {
+        //j for cols (move columns for horiz mvt)
         for (var j = 1; j < divisions; j++) {
             if (cells[i][j].value) {
                 var col = j;
+                //move totally left
                 while (col > 0) {
                     if (!cells[i][col-1].value) {
                         cells[i][col-1].value = cells[i][col].value;
                         cells[i][col].value = 0;
                         col--;
                     }
+                    //combine
                     else if (cells[i][col-1].value == cells[i][col].value) {
                         cells[i][col-1].value *= 2;
                         score += cells[i][col-1].value;
