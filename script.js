@@ -7,7 +7,7 @@ var scorelabel = document.getElementById("score");
 
 var score = 0;
 var divisions = 4;
-var width = canvas.width / divisions - 6;
+var width = canvas.width / divisions - 6; //allow for margins
 
 var cells = [];
 var fontsize;
@@ -21,7 +21,7 @@ startgame();
 changedivisions.onclick = function() {
     if (divisionsinput.value >= 2 && divisionsinput.value <= 20) {
         divisions = divisionsinput.value;
-        width = canvas.width / divisions - 6;
+        width = canvas.width / divisions - 6; //allow for margins
         clearcanvas();
         startgame();
     }
@@ -29,7 +29,9 @@ changedivisions.onclick = function() {
 
 //function to clear canvas
 function clearcanvas() {
-    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.fillStyle = "black";
+    context.fillRect(0, 0, 500, 500);
+    // context.clearRect(0, 0, canvas.width, canvas.height);
 }
 
 //function to init cells/game
@@ -272,6 +274,9 @@ function moveL() {
 
 //function to make game screen dark when game is over
 function endgame() {
-    canvas.style.opacity = "0.1";
+    canvas.style.opacity = "0.5";
     gameover = true;
+    // clearcanvas();
+    context.fillStyle = "#20c20c";
+    context.fillText("GAME OVER", canvas.width/2, canvas.height/2);
 }
