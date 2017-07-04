@@ -16,6 +16,22 @@ var gameover = false;
 
 startgame();
 
+
+//function to change number of squares on game canvas
+changedivisions.onclick = function() {
+    if (divisionsinput.value >= 2 && divisionsinput.value <= 20) {
+        divisions = divisionsinput.value;
+        width = canvas.width / divisions - 6;
+        clearcanvas();
+        startgame();
+    }
+}
+
+//function to clear canvas
+function clearcanvas() {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+}
+
 //function to init cells/game
 function startgame() {
     createcells();
@@ -237,6 +253,7 @@ function moveL() {
     gencell();
 }
 
+//function to make game screen dark when game is over
 function endgame() {
     canvas.style.opacity = "0.1";
     gameover = true;
