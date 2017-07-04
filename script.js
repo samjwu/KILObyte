@@ -153,6 +153,10 @@ function moveU() {
                         cells[row-1][j].value *= 2;
                         score += cells[row-1][j].value;
                         cells[row][j].value = 0;
+                        //win game!
+                        if (cells[row-1][j].value == 1024) {
+                            endgame();
+                        }
                         break;
                     }
                     else { 
@@ -181,6 +185,10 @@ function moveR() {
                         cells[i][col+1].value *= 2;
                         score += cells[i][col+1].value;
                         cells[i][col].value = 0;
+                        //win game!
+                        if (cells[i][col+1].value == 1024) {
+                            endgame();
+                        }
                         break;
                     }
                     else { 
@@ -209,6 +217,10 @@ function moveD() {
                         cells[row+1][j].value *= 2;
                         score += cells[row+1][j].value;
                         cells[row][j].value = 0;
+                        //win game!
+                        if (cells[row+1][j].value == 1024) {
+                            endgame();
+                        }
                         break;
                     }
                     else { 
@@ -229,8 +241,8 @@ function moveL() {
         for (var j = 1; j < divisions; j++) {
             if (cells[i][j].value) {
                 var col = j;
-                //move totally left
                 while (col > 0) {
+                    //move totally left
                     if (!cells[i][col-1].value) {
                         cells[i][col-1].value = cells[i][col].value;
                         cells[i][col].value = 0;
@@ -241,8 +253,13 @@ function moveL() {
                         cells[i][col-1].value *= 2;
                         score += cells[i][col-1].value;
                         cells[i][col].value = 0;
+                        //win game!
+                        if (cells[i][col-1].value == 1024) {
+                            endgame();
+                        }
                         break;
                     }
+                    //cannot move
                     else { 
                         break;
                     }
