@@ -82,19 +82,22 @@ function drawcell(cell) {
 
     context.fill();
     if (cell.value) {
-        fontsize = width / 3;
-        context.font = fontsize + "px Arial";
-        context.fillStyle = "#20c20c"; //number color
-        context.textAlign = "center";
-        context.fillText(cell.value + "B", cell.x + width / 2, cell.y + width / 1.6); //number position
-    }
-    //special case for 1024 value
-    if (cell.value == 1024) {
-        fontsize = width / 2;
-        context.font = fontsize + "px Arial";
-        context.fillStyle = "#ffffff"; //number color
-        context.textAlign = "center";
-        context.fillText("1KB", cell.x + width / 2, cell.y + width / 1.6); //number position
+        //special case for 1024 value
+        if (cell.value == 1024) {
+            fontsize = width / 2;
+            context.font = fontsize + "px Arial";
+            context.fillStyle = "#ffffff"; //number color
+            context.textAlign = "center";
+            context.fillText("1KB", cell.x + width / 2, cell.y + width / 1.6); //number position
+        }
+        //all other values
+        else {
+            fontsize = width / 3;
+            context.font = fontsize + "px Arial";
+            context.fillStyle = "#20c20c"; //number color
+            context.textAlign = "center";
+            context.fillText(cell.value + "B", cell.x + width / 2, cell.y + width / 1.6); //number position
+        }
     }
 }
 
