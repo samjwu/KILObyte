@@ -77,7 +77,7 @@ function drawcell(cell) {
         case 128 : context.fillStyle = "#000000"; break;
         case 256 : context.fillStyle = "#000000"; break;
         case 512 : context.fillStyle = "#000000"; break;
-        case 1024 : context.fillStyle = "#000000"; break;
+        case 1024 : context.fillStyle = "#20c20c"; break;
     }
 
     context.fill();
@@ -168,7 +168,7 @@ function moveU() {
                         cells[row][j].value = 0;
                         //win game!
                         if (cells[row-1][j].value == 1024) {
-                            endgame();
+                            wingame();
                         }
                         break;
                     }
@@ -200,7 +200,7 @@ function moveR() {
                         cells[i][col].value = 0;
                         //win game!
                         if (cells[i][col+1].value == 1024) {
-                            endgame();
+                            wingame();
                         }
                         break;
                     }
@@ -232,7 +232,7 @@ function moveD() {
                         cells[row][j].value = 0;
                         //win game!
                         if (cells[row+1][j].value == 1024) {
-                            endgame();
+                            wingame();
                         }
                         break;
                     }
@@ -268,7 +268,7 @@ function moveL() {
                         cells[i][col].value = 0;
                         //win game!
                         if (cells[i][col-1].value == 1024) {
-                            endgame();
+                            wingame();
                         }
                         break;
                     }
@@ -288,6 +288,17 @@ function endgame() {
     canvas.style.opacity = "0.5";
     gameover = true;
     // clearcanvas();
-    context.fillStyle = "#20c20c";
+    context.font = width / 2 + "px Arial";
+    context.fillStyle = "#ffffff";
     context.fillText("GAME OVER", canvas.width/2, canvas.height/2);
+}
+
+//function for won games
+function wingame() {
+    canvas.style.opacity = "0.5";
+    gameover = true;
+    // clearcanvas();
+    context.font = width / 2 + "px Arial";
+    context.fillStyle = "#ffffff";
+    context.fillText("YOU WIN", canvas.width/2, canvas.height/2);
 }
